@@ -13,7 +13,6 @@ public static class SaveLoad
         FileStream file = File.Create(Application.persistentDataPath + "/save.gd");
         bf.Serialize(file, Save.current);
         file.Close();
-        Debug.Log("Save");
     }
     public static void Load()
     {

@@ -3,8 +3,8 @@
     "m_SelectedPackage": {
         "deviceId": "8AKY0MAYP",
         "name": "com.The15th.robi",
-        "processId": 5267,
-        "exited": true
+        "processId": 31236,
+        "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
@@ -17,44 +17,38 @@
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.The15th.robi",
-            "processId": 17276,
+            "processId": 5728,
             "exited": true
         },
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.The15th.robi",
-            "processId": 18876,
+            "processId": 9069,
             "exited": true
         },
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.The15th.robi",
-            "processId": 24138,
+            "processId": 10653,
             "exited": true
         },
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.The15th.robi",
-            "processId": 28102,
+            "processId": 11590,
             "exited": true
         },
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.The15th.robi",
-            "processId": 31437,
+            "processId": 15039,
             "exited": true
         },
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.The15th.robi",
-            "processId": 3921,
+            "processId": 31236,
             "exited": false
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.The15th.robi",
-            "processId": 5267,
-            "exited": true
         }
     ],
     "m_Tags": {
@@ -107,7 +101,7 @@
         "MemoryGroup": 1,
         "Behavior": 1
     },
-    "m_Filter": "unity",
+    "m_Filter": "",
     "m_FilterIsRegularExpression": false,
     "m_SymbolPaths": []
 }

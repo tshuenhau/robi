@@ -25,7 +25,8 @@ public class Portal : MonoBehaviour
         GetComponent<SpriteRenderer>().color = levelController.GetLevelColor();
         //Debug.Log(PlayerPrefsController.GetLevel());
     }
-    void OnTriggerEnter2D(Collider2D collider){
+    void OnTriggerEnter2D(Collider2D collider)
+    {
         FindObjectOfType<Player>().Win();
         tryAgainButton.SetActive(false);
         nextLevelButton.SetActive(true);
@@ -33,11 +34,7 @@ public class Portal : MonoBehaviour
         deadPlayer.SetActive(false);
         happyPlayer.SetActive(true);
         menu.SetActive(true);
-        levelIndicatorAnimator.SetTrigger("ActivateMenu");        
+        levelIndicatorAnimator.SetTrigger("ActivateMenu");
     }
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

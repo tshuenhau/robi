@@ -8,10 +8,14 @@ public class Obstacle : MonoBehaviour
     Player player;
     ColorController colorController;
     SpriteRenderer mySpriteRenderer;
+    //Vector2 startPos;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        //startPos = transform.position;
+
         player = FindObjectOfType<Player>();
         colorController = FindObjectOfType<ColorController>();
         myBoxCollider2D = GetComponent<BoxCollider2D>();
@@ -19,6 +23,11 @@ public class Obstacle : MonoBehaviour
         //ToggleActivation();
         //Debug.Log(player.getLives());
     }
+
+    // private void OnDestroy()
+    // {
+    //     transform.position = startPos;
+    // }
     void OnTriggerEnter2D(Collider2D collider)
     {
         //Destroy(collider.gameObject);

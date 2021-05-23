@@ -13,24 +13,16 @@ public class LevelSelectButtons : MonoBehaviour
     {
         button = GetComponent<Button>();
         level = int.Parse(GetComponentInChildren<TextMeshProUGUI>().text);
-        if(level > Save.current.level){
+        if (level > Save.current.level)
+        {
             button.interactable = false;
         }
-        else{
+        else
+        {
             button.interactable = true;
         }
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        // if(){
-        //     button.interactable = false;
-        // }
-        // else{
-        //     button.interactable = true;
-        // }
 
-        
-    }
 }

@@ -14,11 +14,8 @@ public class SkinManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void SetSkin(int spriteNum){ // 0 = default
+    public void SetSkin(int spriteNum)
+    { // 0 = default
         mySpriteRenderer.sprite = spriteList[spriteNum];
     }
 

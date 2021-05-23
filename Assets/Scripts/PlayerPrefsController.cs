@@ -10,13 +10,10 @@ public class PlayerPrefsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt(LEVEL_KEY,PlayerPrefs.GetInt(LEVEL_KEY, 1));
+        PlayerPrefs.SetInt(LEVEL_KEY, PlayerPrefs.GetInt(LEVEL_KEY, 1));
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
