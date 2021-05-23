@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4476969920079793796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0053696632, y: 4.491893, z: -10}
+  m_LocalPosition: {x: 0.0053696632, y: 4.4918966, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4476969921458666694}
@@ -231,7 +231,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4476969920642159595
 Transform:
@@ -273,8 +273,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 3.0142758, y: 2.2380576}
-      - {x: 3.166831, y: 21.993021}
-      - {x: -2.9704235, y: 21.962666}
+      - {x: 3.2495232, y: 37.49731}
+      - {x: -3.177147, y: 37.549644}
       - {x: -3.0647666, y: -2.0080264}
       - {x: 3.016056, y: -2.0150478}
 --- !u!1 &4476969921175407644

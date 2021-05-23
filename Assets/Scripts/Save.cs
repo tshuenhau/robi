@@ -18,15 +18,16 @@ public class Save
     //public int livesEquipped;
 
     //public Dictionary<string, bool> utilityEquip;
-    public Save (){
-        unlockedSkins = new List<int>{0};
-        level = 1;
+    public Save()
+    {
+        unlockedSkins = new List<int> { 0 };
+        level = 16;
         flux = new int();
-       // lives = 0;
+        // lives = 0;
         currentSkin = new int();
         //livesEquipped = -1;
         //utilityEquip = new Dictionary<string, bool>();
-        items = new int [2] {0, 0};
-        itemsEquipped = new int[2] {-1, -1};
+        items = new int[2] { 0, 0 };
+        itemsEquipped = new int[2] { -1, -1 };
     }
 }

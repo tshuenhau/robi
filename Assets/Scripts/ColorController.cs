@@ -20,10 +20,9 @@ public class ColorController : MonoBehaviour
     Color deathCurrentColor;
     Color deathNextColor;
     LevelController levelController;
-
     float deathDuration = 1f;
     float deathTimer = 0;
-
+    Slider slider;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +30,7 @@ public class ColorController : MonoBehaviour
         colorListIndex = 0;
 
         SetColor();
-
+        slider = GetComponent<Slider>();
         if (colorList.Count < 2)
         {
             transform.parent.gameObject.GetComponent<Canvas>().enabled = false;
@@ -55,7 +54,7 @@ public class ColorController : MonoBehaviour
         colorChangeTimer -= Time.deltaTime;
         if (!dead)
         {
-            GetComponent<Slider>().value = 1 - colorChangeTimer / timerCount;
+            slider.value = 1 - colorChangeTimer / timerCount;
 
             if (colorChangeTimer <= 0)
             {

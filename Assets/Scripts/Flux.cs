@@ -5,24 +5,27 @@ using UnityEngine;
 public class Flux : MonoBehaviour
 {
     AudioSource audioSource;
-    [SerializeField]AudioClip fluxSFX;
+    [SerializeField] AudioClip fluxSFX;
     LevelController levelController;
     SpriteRenderer mySpriteRenderer;
     BoxCollider2D myBoxCollider;
 
     [SerializeField] int fluxToAdd;
-    void OnTriggerEnter2D(Collider2D collider){
+    void OnTriggerEnter2D(Collider2D collider)
+    {
         StartCoroutine(sfxAndDestory());
         levelController.AddFlux(fluxToAdd);
         Save.current.flux += levelController.GetFlux();
         SaveLoad.SaveGame();
     }
 
-    private IEnumerator sfxAndDestory(){
+    private IEnumerator sfxAndDestory()
+    {
         audioSource.PlayOneShot(fluxSFX); // have to use a coroutine
         mySpriteRenderer.enabled = false;
         myBoxCollider.enabled = false;
-        while(audioSource.isPlaying){
+        while (audioSource.isPlaying)
+        {
             yield return null;
         }
         Destroy(gameObject);
@@ -39,8 +42,5 @@ public class Flux : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
