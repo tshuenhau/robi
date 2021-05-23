@@ -18,34 +18,16 @@ public class HorizontalMove : MonoBehaviour //! Might need to find a more effici
     {
         startPos = transform.position;
         //transform.position = startPos;
-        Debug.Log(transform.position + "THIS IS THE POS Start");
-        //float halfHeight = Camera.main.orthographicSize;
-        // halfWidth = camera.aspect *halfHeight;
         halfWidth = FindObjectOfType<ViewportHandler>().GetFullWidthUnits() / 2;
         //obstacles = GetComponentInChildren<Transform>();
         outOfScreen = obstacleSize / 2 + halfWidth;
-        Move();
-
     }
 
-    private void OnDestroy()
-    {
-        //Debug.Log(startPos);
-        transform.position = startPos;
-        Debug.Log(transform.position + "THIS IS THE POS destroy");
-
-    }
     void Update()
     {
-
         Move();
-        if (update == false)
-        {
-            Debug.Log(transform.position + "THIS IS THE POS");
-            update = true;
-        }
     }
-    void Move() //! the problem here is that the X value keeps increasing to very big numbers
+    void Move()
     {
         Vector2 pos = startPos;
         if (direction == "l")

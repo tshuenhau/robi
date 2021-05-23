@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+//TODO maybe clean up the implementation of this transition. i.e we have 3 animations now, maybe we dont need 3.
 public class SceneTransition : MonoBehaviour
 {
 
@@ -64,25 +64,6 @@ public class SceneTransition : MonoBehaviour
         SceneManager.LoadScene(name);
         SceneManager.sceneLoaded -= OnSceneLoaded;
         Resources.UnloadUnusedAssets();
-
-    }
-    //TODO: MAybe try removing transition screen
-    //TODO: Maybe try using this instead.
-    //! CONFIRMED THAT LOADING ASYNC WILL SOLVE THE SLOW LOADING PROBLEM, BUT MUST FIND A BETTER WAY TO MAKE IT HAPPEN
-    //! ASYNC Loading works but it is not allowing me to start the trainsiton (closing the two halves).
-    IEnumerator LoadSceneAsync(int index)
-    {
-        transition.SetTrigger("StartTransition");
-
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(index);
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-        StartCoroutine(WaitAndLoad(index));
-
 
     }
 

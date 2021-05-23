@@ -47,7 +47,6 @@ public class Obstacle : MonoBehaviour
     // void Update()
     // {
     //     //ToggleActivation();
-    //     //TODO: Maybe instead of toggling on n off the collider each frame, we can just check during collision if the colors are the same?
     // }
     public void ToggleActivation()
     {

@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "8AKY0MAYP",
         "name": "com.The15th.robi",
-        "processId": 31236,
+        "processId": 1188,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -48,6 +48,12 @@
             "deviceId": "8AKY0MAYP",
             "name": "com.The15th.robi",
             "processId": 31236,
+            "exited": false
+        },
+        {
+            "deviceId": "8AKY0MAYP",
+            "name": "com.The15th.robi",
+            "processId": 1188,
             "exited": false
         }
     ],

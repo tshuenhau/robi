@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO probably end up making a prefab of each level's obstacles and instantiating it each time.
 public class HorizontalOscillate : MonoBehaviour
 {
     [SerializeField] string startDirection = "r";
