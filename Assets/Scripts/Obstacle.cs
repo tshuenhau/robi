@@ -34,12 +34,9 @@ public class Obstacle : MonoBehaviour
         ////SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         if (!player.isDead() && colorController.getCurrentColor() != mySpriteRenderer.color)
         {
-            if (player.getLives() > 0) { player.decreaseLives(); }
+            player.Die();
 
-            else
-            {
-                player.Die();
-            }
+
         }
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

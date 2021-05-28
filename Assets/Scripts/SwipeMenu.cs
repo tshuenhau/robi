@@ -48,7 +48,7 @@ public class SwipeMenu : MonoBehaviour
         {
             if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
             {
-                //Debug.Log( "i is" + i);   
+                //Debug.Log( "i is" + i);
                 transform.GetChild(i).localScale = Vector2.Lerp(transform.GetChild(i).localScale, new Vector2(1.2f, 1.2f), 0.1f);
                 for (int j = 0; j < pos.Length; j++)
                 {
@@ -93,7 +93,7 @@ public class SwipeMenu : MonoBehaviour
         {
             Save.current.flux -= shopPrices.GetPrices()[currIndex];
             Save.current.items[currIndex] += 1;
-        SaveLoad.SaveGame();
+            SaveLoad.SaveGame();
 
             // switch(currIndex) {
             //     case 0:
@@ -111,28 +111,37 @@ public class SwipeMenu : MonoBehaviour
 
     }
 
-    public void equipLives(){
+    public void equipLives()
+    {
         Save.current.itemsEquipped[0] *= -1;
         SaveLoad.SaveGame();
         //Debug.Log(Save.current.livesEquipped);
 
     }
 
-    public void equipItem(){
+    public void equipItem()
+    {
         Save.current.itemsEquipped[currIndex] *= -1;
+        Debug.Log("Equipped" + currIndex);
+        Debug.Log(Save.current.itemsEquipped[currIndex]);
+        if (Save.current.itemsEquipped[currIndex] == 0)
+        {
+            Save.current.itemsEquipped[currIndex] = -1;
+        }
         SaveLoad.SaveGame();
         //Debug.Log(Save.current.livesEquipped);
 
     }
 
-        public void addFlux()
+    public void addFlux()
     {
         Save.current.flux += 10000;
         SaveLoad.SaveGame();
 
     }
 
-    public void equipIndex(int index){
+    public void equipIndex(int index)
+    {
 
     }
 }

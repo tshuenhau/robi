@@ -22,7 +22,7 @@ public class QuantityLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Save.current.items[0]);
+        Debug.Log(Save.current.itemsEquipped[1]);
         switch (tabGroup.selectedTab.getTabName())
         {
             case "Skins":
@@ -31,7 +31,7 @@ public class QuantityLeft : MonoBehaviour
 
             case "Utility":
                 quantityLeftText.text = Save.current.items[swipeMenu.GetCurrIndex()] + " left";
-   
+
                 break;
 
         }

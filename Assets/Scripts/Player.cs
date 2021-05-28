@@ -10,10 +10,15 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip dieSFX;
     [SerializeField] AudioClip winSFX;
     [SerializeField] AudioClip shieldHitSFX;
+
+    [SerializeField] AudioClip returnToCheckpointSFX;
+
+    AudioClip currentClipPlaying;
     AudioSource audioSource;
     PolygonCollider2D myCollider;
     Rigidbody2D myRigidBody;
     SpriteRenderer mySpriteRenderer;
+    LevelController levelController;
     Animator animator;
     ColorController colorController;
     bool dead;
@@ -21,6 +26,8 @@ public class Player : MonoBehaviour
     bool invincible = false;
 
     int lives;
+    bool inputEnabled = true;
+    bool returnToCheckpoint = false;
     Color endColor = new Color(0, 0, 0);
 
     //Color[] colorList = {new Color(0.6078432f,0.9647059f,1f), new Color(0.7921569f,1,0.7490196f)};
@@ -35,7 +42,15 @@ public class Player : MonoBehaviour
         myRigidBody.bodyType = RigidbodyType2D.Static;
         //mySpriteRenderer = GetComponent<SpriteRenderer>();
         animator = transform.parent.GetComponent<Animator>();
+        levelController = FindObjectOfType<LevelController>();
         audioSource = GetComponent<AudioSource>();
+
+        if (Save.current.itemsEquipped[1] == 1 && Save.current.items[1] > 0) //? if returnToCheckpoint is equipped and qty > 0
+        {
+            returnToCheckpoint = true;
+            //TODO: returnToCheckpoint indicator set to true;
+        }
+
         if (Save.current.itemsEquipped[0] == 1 && Save.current.items[0] > 0)
         {
             lives = 1;
@@ -51,7 +66,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0 && !dead)
+        if (Input.touchCount > 0 && !dead && inputEnabled)
         {
             if (Input.touches[0].phase == TouchPhase.Began)
             {
@@ -60,6 +75,7 @@ public class Player : MonoBehaviour
                     myRigidBody.bodyType = RigidbodyType2D.Dynamic;
                     start = true;
                 }
+
                 Jump();
             }
         }
@@ -73,6 +89,8 @@ public class Player : MonoBehaviour
         animator.SetTrigger("Jump");
         myRigidBody.velocity = Vector2.up * jumpSpeed;
         audioSource.PlayOneShot(jumpSFX);
+        currentClipPlaying = jumpSFX;
+
     }
     public void Win()
     {
@@ -81,7 +99,6 @@ public class Player : MonoBehaviour
             Save.current.level += 1;
             SaveLoad.SaveGame();
         }
-        StartCoroutine(WaitAndWin());
         GameObject.Find("BodyParts").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static; // this is to make it fall through all obstacles and out of the screen.
         audioSource.PlayOneShot(winSFX);
         if (lives < 0) { lives = 0; }
@@ -89,13 +106,55 @@ public class Player : MonoBehaviour
         Destroy(this);
 
     }
-    private IEnumerator WaitAndWin()
+
+    private IEnumerator MoveToPosition()
     {
-        yield return new WaitForSeconds(1.5f);
+        inputEnabled = false;
+        myCollider.enabled = false;
+        {
+            audioSource.volume = 0.6f;
+            audioSource.clip = returnToCheckpointSFX;
+            audioSource.Play();
+        }
+        currentClipPlaying = returnToCheckpointSFX;
+        Time.timeScale = 0.15f;
+
+        yield return new WaitForSeconds(0.25f);
+        transform.position = levelController.getCheckpointPositionFromBack(1);
+        Time.timeScale = 1f;
+        start = false;
+        myCollider.enabled = true;
+        inputEnabled = true;
+        audioSource.volume = 1f;
+        myRigidBody.bodyType = RigidbodyType2D.Static;
+        returnToCheckpoint = false;
+        if (Save.current.items[1]-- < 1)
+        {
+            Save.current.itemsEquipped[1] = -1; //? un-equip
+        }
+        SaveLoad.SaveGame();
+
+        ;
     }
     public void Die()
     {
         if (invincible) { return; }
+
+        if (getLives() > 0) { decreaseLives(); return; }
+
+
+        if (returnToCheckpoint)
+        {
+            if (levelController.getNumOfCheckpoints() > 1)
+            {
+
+                StartCoroutine(MoveToPosition());
+                animator.SetTrigger("Idle");
+                return;
+
+
+            }
+        } // TODO: Add code to trigger return to checkpoint
         GameObject.Find("Body").GetComponent<PolygonCollider2D>().isTrigger = true; // this is to make it fall through all obstacles and out of the screen.
         audioSource.PlayOneShot(dieSFX);
 
@@ -120,20 +179,6 @@ public class Player : MonoBehaviour
         Destroy(this);
 
     }
-    // private IEnumerator DeathColorChange()
-    // {
-    //     float tick = 0f;
-    //     float speed = 1f;
-    //     while (mySpriteRenderer.color != endColor)
-    //     {
-    //         tick += Time.deltaTime * speed;
-    //         mySpriteRenderer.color = Color.Lerp(mySpriteRenderer.color, endColor, tick);
-    //         FindObjectOfType<CurrentColor>().ChangeColor(endColor, tick);
-    //         FindObjectOfType<NextColor>().ChangeColor(endColor, tick);
-
-    //         yield return null;
-    //     }
-    // }
     public bool isDead()
     {
         return dead;

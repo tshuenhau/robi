@@ -637,6 +637,8 @@ MonoBehaviour:
   dieSFX: {fileID: 8300000, guid: 45a4e316a4e20d4499ee6cabc51ac2b9, type: 3}
   winSFX: {fileID: 8300000, guid: bc560ecc524469449a727252bd52348c, type: 3}
   shieldHitSFX: {fileID: 8300000, guid: 1d3f42724228d254eae20a476d986c28, type: 3}
+  returnToCheckpointSFX: {fileID: 8300000, guid: ff92823b85c17594fa1efb97fe5d62bc,
+    type: 3}
 --- !u!50 &4457789025694493714
 Rigidbody2D:
   serializedVersion: 4

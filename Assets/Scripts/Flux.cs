@@ -11,8 +11,10 @@ public class Flux : MonoBehaviour
     BoxCollider2D myBoxCollider;
 
     [SerializeField] int fluxToAdd;
+
     void OnTriggerEnter2D(Collider2D collider)
     {
+        levelController.addCheckpoint(transform.position);
         StartCoroutine(sfxAndDestory());
         levelController.AddFlux(fluxToAdd);
         Save.current.flux += levelController.GetFlux();
