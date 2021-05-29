@@ -2325,7 +2325,7 @@ MonoBehaviour:
   swipeMenu: {fileID: 620785942}
   itemDescriptions:
   - Allows your shield to survive an additional hit.
-  - Rewind
+  - On death, teleports you to your 2nd last checkpoint.
 --- !u!1 &726823674
 GameObject:
   m_ObjectHideFlags: 0
@@ -4673,7 +4673,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 781d1c9709a987a49af21b0ffc73af91, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa6870115652e6b4885354cff6467a44, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6736,7 +6736,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1914958915}
   m_Layer: 5
-  m_Name: Lives
+  m_Name: Reinforce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6820,7 +6820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Shield: Extra Energy'
+  m_text: 'Shield: Reinforce'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c925324206d4f54091661d5b3bf4880, type: 2}
   m_sharedMaterial: {fileID: -8321560335264412274, guid: 7c925324206d4f54091661d5b3bf4880,
@@ -6912,8 +6912,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swipeMenu: {fileID: 620785942}
   itemNames:
-  - 'Shield: Extra Energy'
-  - Rewind
+  - Reinforce
+  - 'Rewind: Type 2'
 --- !u!1 &1966193607
 GameObject:
   m_ObjectHideFlags: 0

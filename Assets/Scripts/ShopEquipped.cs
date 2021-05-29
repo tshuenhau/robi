@@ -38,6 +38,7 @@ public class ShopEquipped : MonoBehaviour
                 break;
 
             case "Utility":
+                Debug.Log(gameObject.transform.parent.transform.GetSiblingIndex() + " " + Save.current.itemsEquipped[gameObject.transform.parent.transform.GetSiblingIndex()]);
                 if (Save.current.itemsEquipped[gameObject.transform.parent.transform.GetSiblingIndex()] == 1)
                 {
                     image.enabled = true;

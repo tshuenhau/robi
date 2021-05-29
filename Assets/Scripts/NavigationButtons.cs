@@ -27,10 +27,8 @@ public class NavigationButtons : MonoBehaviour
         //SceneManager.LoadScene(Save.current.level);
         //musicPlayer.PlayMode();
     }
-    public void Shop()
+    public void Shop() // TODO: state of the menu should be preserved, i.e if win already then when returning to the scene should have the next level button.
     {
-        // SceneManager.LoadScene("Shop", LoadSceneMode.Additive);
-        // StartCoroutine(SetActive(SceneManager.GetSceneByName("Shop")));
         persistBetweenScenes.SetPrevSceneIndex(SceneManager.GetActiveScene().buildIndex);
         sceneTransition.LoadScene("Shop");
     }
@@ -55,11 +53,6 @@ public class NavigationButtons : MonoBehaviour
 
     public void LevelSelect()
     {
-        //sceneTransition.LoadScene();
-
-        // SceneManager.LoadScene("LevelSelect", LoadSceneMode.Additive);
-        // SceneManager.SetActiveScene(SceneManager.GetSceneByName("LevelSelect"));
-        // StartCoroutine(SetActive(SceneManager.GetSceneByName("LevelSelect")));
 
         persistBetweenScenes.SetPrevSceneIndex(SceneManager.GetActiveScene().buildIndex);
         sceneTransition.LoadScene("LevelSelect");

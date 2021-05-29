@@ -22,7 +22,7 @@ public class QuantityLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Save.current.itemsEquipped[1]);
+        //Debug.Log(Save.current.itemsEquipped[1]);
         switch (tabGroup.selectedTab.getTabName())
         {
             case "Skins":

@@ -41,23 +41,24 @@ public class ShopEquipButton : MonoBehaviour
                 break;
 
             case "Utility":
-                if (Save.current.items[0] < 1) // 1 == true
+                if (Save.current.items[swipeMenu.GetCurrIndex()] < 1) // 1 == true
                 {
                     button.interactable = false;
 
                 }
-                else if (Save.current.itemsEquipped[swipeMenu.GetCurrIndex()] == 1){
+                else if (Save.current.itemsEquipped[swipeMenu.GetCurrIndex()] == 1)
+                {
                     button.interactable = true;
 
                     buttonText.text = "Unequip";
                 }
                 else //if (Save.current.livesEquipped == -1) //-1 == false
-                {                    
+                {
                     button.interactable = true;
                     buttonText.text = "Equip";
 
                 }
-        
+
                 break;
 
         }

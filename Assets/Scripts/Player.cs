@@ -6,12 +6,14 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float jumpSpeed = 19f;
     [SerializeField] GameObject livesIndicator;
+    [SerializeField] GameObject rewind2Indicator;
+
     [SerializeField] AudioClip jumpSFX;
     [SerializeField] AudioClip dieSFX;
     [SerializeField] AudioClip winSFX;
     [SerializeField] AudioClip shieldHitSFX;
 
-    [SerializeField] AudioClip returnToCheckpointSFX;
+    [SerializeField] AudioClip rewindSFX;
 
     AudioClip currentClipPlaying;
     AudioSource audioSource;
@@ -27,7 +29,7 @@ public class Player : MonoBehaviour
 
     int lives;
     bool inputEnabled = true;
-    bool returnToCheckpoint = false;
+    bool rewind2 = false; //? Rewind to 2nd last checkpoint
     Color endColor = new Color(0, 0, 0);
 
     //Color[] colorList = {new Color(0.6078432f,0.9647059f,1f), new Color(0.7921569f,1,0.7490196f)};
@@ -45,12 +47,17 @@ public class Player : MonoBehaviour
         levelController = FindObjectOfType<LevelController>();
         audioSource = GetComponent<AudioSource>();
 
-        if (Save.current.itemsEquipped[1] == 1 && Save.current.items[1] > 0) //? if returnToCheckpoint is equipped and qty > 0
+        if (Save.current.itemsEquipped[1] == 1 && Save.current.items[1] > 0) //? if rewind is equipped and qty > 0
         {
-            returnToCheckpoint = true;
-            //TODO: returnToCheckpoint indicator set to true;
-        }
+            rewind2 = true;
+            rewind2Indicator.SetActive(true);
 
+        }
+        else
+        {
+            rewind2 = false;
+            rewind2Indicator.SetActive(false);
+        }
         if (Save.current.itemsEquipped[0] == 1 && Save.current.items[0] > 0)
         {
             lives = 1;
@@ -101,8 +108,6 @@ public class Player : MonoBehaviour
         }
         GameObject.Find("BodyParts").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static; // this is to make it fall through all obstacles and out of the screen.
         audioSource.PlayOneShot(winSFX);
-        if (lives < 0) { lives = 0; }
-        Save.current.items[0] = lives;
         Destroy(this);
 
     }
@@ -113,10 +118,10 @@ public class Player : MonoBehaviour
         myCollider.enabled = false;
         {
             audioSource.volume = 0.6f;
-            audioSource.clip = returnToCheckpointSFX;
+            audioSource.clip = rewindSFX;
             audioSource.Play();
         }
-        currentClipPlaying = returnToCheckpointSFX;
+        currentClipPlaying = rewindSFX;
         Time.timeScale = 0.15f;
 
         yield return new WaitForSeconds(0.25f);
@@ -127,8 +132,10 @@ public class Player : MonoBehaviour
         inputEnabled = true;
         audioSource.volume = 1f;
         myRigidBody.bodyType = RigidbodyType2D.Static;
-        returnToCheckpoint = false;
-        if (Save.current.items[1]-- < 1)
+        rewind2 = false;
+        rewind2Indicator.SetActive(false);
+        Save.current.items[1]--;
+        if (Save.current.items[1] < 1)
         {
             Save.current.itemsEquipped[1] = -1; //? un-equip
         }
@@ -143,7 +150,7 @@ public class Player : MonoBehaviour
         if (getLives() > 0) { decreaseLives(); return; }
 
 
-        if (returnToCheckpoint)
+        if (rewind2)
         {
             if (levelController.getNumOfCheckpoints() > 1)
             {
@@ -154,7 +161,7 @@ public class Player : MonoBehaviour
 
 
             }
-        } // TODO: Add code to trigger return to checkpoint
+        }
         GameObject.Find("Body").GetComponent<PolygonCollider2D>().isTrigger = true; // this is to make it fall through all obstacles and out of the screen.
         audioSource.PlayOneShot(dieSFX);
 
@@ -195,11 +202,21 @@ public class Player : MonoBehaviour
         audioSource.PlayOneShot(shieldHitSFX);
         lives--;
         Save.current.items[0]--;
-        SaveLoad.SaveGame();
+
+
         if (lives <= 0)
         {
             livesIndicator.SetActive(false);
+
         }
+
+        if (Save.current.items[0] < 1)
+        {
+            Save.current.itemsEquipped[0] = -1;
+
+        }
+        SaveLoad.SaveGame();
+
         StartCoroutine(invincibilityTime());
     }
 
