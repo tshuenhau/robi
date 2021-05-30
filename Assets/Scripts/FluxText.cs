@@ -12,13 +12,13 @@ public class FluxText : MonoBehaviour
     void Start()
     {
         levelController = FindObjectOfType<LevelController>();
-        scoreText= GetComponent<TextMeshProUGUI>();  
+        scoreText = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
         scoreText.text = levelController.GetFlux().ToString();
-       
+
     }
 }

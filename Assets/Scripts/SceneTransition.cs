@@ -9,7 +9,7 @@ public class SceneTransition : MonoBehaviour
 
     public Animator transition;
 
-    public float transitionTime = 0.45f;
+    public float transitionTime = 0.25f;
     // called first
     void Awake()
     {

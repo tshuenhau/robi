@@ -47,7 +47,6 @@ public class NavigationButtons : MonoBehaviour
     public void Home()
     {
         sceneTransition.LoadScene(0);
-
         //SceneManager.LoadScene(0);
     }
 
@@ -62,7 +61,6 @@ public class NavigationButtons : MonoBehaviour
     public void Back()
     {
         //sceneTransition.LoadScene();
-
         //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         sceneTransition.LoadScene(persistBetweenScenes.GetPrevSceneIndex());
     }
