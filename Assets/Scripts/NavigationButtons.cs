@@ -62,7 +62,16 @@ public class NavigationButtons : MonoBehaviour
     {
         //sceneTransition.LoadScene();
         //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-        sceneTransition.LoadScene(persistBetweenScenes.GetPrevSceneIndex());
+        if (persistBetweenScenes.GetWin() == true)
+        {
+
+            sceneTransition.LoadScene(persistBetweenScenes.GetPrevSceneIndex() + 1); //? Loads the next level since you won
+        }
+        else
+        {
+            sceneTransition.LoadScene(persistBetweenScenes.GetPrevSceneIndex());
+
+        }
     }
 
 }

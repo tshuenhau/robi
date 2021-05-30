@@ -23,7 +23,9 @@ public class Player : MonoBehaviour
     LevelController levelController;
     Animator animator;
     ColorController colorController;
-    bool dead;
+
+    PersistBetweenScenes persistBetweenScenes;
+    bool dead = false;
     bool start = false;
     bool invincible = false;
 
@@ -46,7 +48,8 @@ public class Player : MonoBehaviour
         animator = transform.parent.GetComponent<Animator>();
         levelController = FindObjectOfType<LevelController>();
         audioSource = GetComponent<AudioSource>();
-
+        persistBetweenScenes = FindObjectOfType<PersistBetweenScenes>();
+        persistBetweenScenes.SetWin(false);
         if (Save.current.itemsEquipped[1] == 1 && Save.current.items[1] > 0) //? if rewind is equipped and qty > 0
         {
             rewind2 = true;
@@ -108,41 +111,12 @@ public class Player : MonoBehaviour
         }
         GameObject.Find("BodyParts").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static; // this is to make it fall through all obstacles and out of the screen.
         audioSource.PlayOneShot(winSFX);
+        persistBetweenScenes.SetWin(true);
         Destroy(this);
 
     }
 
-    private IEnumerator MoveToPosition()
-    {
-        inputEnabled = false;
-        myCollider.enabled = false;
-        {
-            audioSource.volume = 0.6f;
-            audioSource.clip = rewindSFX;
-            audioSource.Play();
-        }
-        currentClipPlaying = rewindSFX;
-        Time.timeScale = 0.15f;
 
-        yield return new WaitForSeconds(0.25f);
-        transform.position = levelController.getCheckpointPositionFromBack(1);
-        Time.timeScale = 1f;
-        start = false;
-        myCollider.enabled = true;
-        inputEnabled = true;
-        audioSource.volume = 1f;
-        myRigidBody.bodyType = RigidbodyType2D.Static;
-        rewind2 = false;
-        rewind2Indicator.SetActive(false);
-        Save.current.items[1]--;
-        if (Save.current.items[1] < 1)
-        {
-            Save.current.itemsEquipped[1] = -1; //? un-equip
-        }
-        SaveLoad.SaveGame();
-
-        ;
-    }
     public void Die()
     {
         if (invincible) { return; }
@@ -154,8 +128,8 @@ public class Player : MonoBehaviour
         {
             if (levelController.getNumOfCheckpoints() > 1)
             {
-
-                StartCoroutine(MoveToPosition());
+                Rewind();
+                //StartCoroutine(MoveToPosition());
                 animator.SetTrigger("Idle");
                 return;
 
@@ -185,6 +159,57 @@ public class Player : MonoBehaviour
         animator.SetTrigger("Die");
         Destroy(this);
 
+    }
+
+    void Rewind()
+    {
+        inputEnabled = false;
+        myCollider.enabled = false;
+        StartCoroutine(PlaySFXThenStartCoroutine(shieldHitSFX, 0.08f, MoveToPosition()));
+
+    }
+
+    private IEnumerator PlaySFXThenStartCoroutine(AudioClip audioClip, float seconds, IEnumerator coroutine)
+    {
+
+        audioSource.PlayOneShot(audioClip);
+        yield return new WaitForSeconds(seconds);
+        StartCoroutine(coroutine);
+    }
+    private IEnumerator MoveToPosition()
+    {
+        //audioSource.PlayOneShot(shieldHitSFX);
+
+
+        {
+            audioSource.pitch = 0.15f;
+            audioSource.volume = 0.6f;
+            audioSource.clip = rewindSFX;
+            audioSource.Play();
+        }
+        currentClipPlaying = rewindSFX;
+        Time.timeScale = 0.15f;
+
+        yield return new WaitForSeconds(0.25f);
+        transform.position = levelController.getCheckpointPositionFromBack(1);
+        Time.timeScale = 1f;
+        audioSource.pitch = 1f;
+
+        start = false;
+        myCollider.enabled = true;
+        inputEnabled = true;
+        audioSource.volume = 1f;
+        myRigidBody.bodyType = RigidbodyType2D.Static;
+        rewind2 = false;
+        rewind2Indicator.SetActive(false);
+        Save.current.items[1]--;
+        if (Save.current.items[1] < 1)
+        {
+            Save.current.itemsEquipped[1] = -1; //? un-equip
+        }
+        SaveLoad.SaveGame();
+
+        ;
     }
     public bool isDead()
     {
