@@ -21,7 +21,7 @@ public class Save
     public Save()
     {
         unlockedSkins = new List<int> { 0 };
-        level = 16;
+        level = 1;
         flux = new int();
         // lives = 0;
         currentSkin = new int();

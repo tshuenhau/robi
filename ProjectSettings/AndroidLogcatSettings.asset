@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "8AKY0MAYP",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "8AKY0MAYP",
+        "name": "com.fifteenth.robi",
+        "processId": 9108,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -54,6 +54,12 @@
             "deviceId": "8AKY0MAYP",
             "name": "com.The15th.robi",
             "processId": 1188,
+            "exited": false
+        },
+        {
+            "deviceId": "8AKY0MAYP",
+            "name": "com.fifteenth.robi",
+            "processId": 9108,
             "exited": false
         }
     ],
