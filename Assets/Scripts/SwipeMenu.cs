@@ -64,6 +64,7 @@ public class SwipeMenu : MonoBehaviour
         }
 
         //Debug.Log(currIndex);
+        //Debug.Log("Current Index: " + currIndex);
 
     }
     public int GetCurrIndex()
@@ -73,8 +74,10 @@ public class SwipeMenu : MonoBehaviour
     public void SetSkin()
     {
         Save.current.currentSkin = currIndex;
-        equipIndex(currIndex);
         SaveLoad.SaveGame();
+        Debug.Log(Save.current.currentSkin);
+        Debug.Log("Current Index " + currIndex);
+
     }
 
     public void BuySkin()
@@ -122,8 +125,6 @@ public class SwipeMenu : MonoBehaviour
     public void equipItem()
     {
         Save.current.itemsEquipped[currIndex] *= -1;
-        Debug.Log("Equipped" + currIndex);
-        Debug.Log(Save.current.itemsEquipped[currIndex]);
         if (Save.current.itemsEquipped[currIndex] == 0)
         {
             Save.current.itemsEquipped[currIndex] = -1;
@@ -140,9 +141,5 @@ public class SwipeMenu : MonoBehaviour
 
     }
 
-    public void equipIndex(int index)
-    {
-
-    }
 }
 

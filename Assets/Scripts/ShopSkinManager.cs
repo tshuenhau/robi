@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShopSkinManager : MonoBehaviour
 {
     Image myImage;
-    [SerializeField]Sprite[] spriteList;
+    [SerializeField] Sprite[] spriteList;
     SwipeMenu swipeMenu;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,8 @@ public class ShopSkinManager : MonoBehaviour
         SetSkin(swipeMenu.GetCurrIndex());
 
     }
-    public void SetSkin(int spriteNum){ // 0 = default
+    public void SetSkin(int spriteNum)
+    { // 0 = default
         myImage.sprite = spriteList[spriteNum];
     }
 }

@@ -116,6 +116,14 @@ public class ColorController : MonoBehaviour
             colorList.Add(new Color(0.6078432f, 0.9647059f, 1f)); //Blue
             // currentColor = colorList[colorListIndex];
             // nextColor = colorList[(colorListIndex + 1) % colorList.Count];
+            if (levelController.GetCurrentLevel() < 4)
+            {
+                colorList.Add(new Color(0.6078432f, 0.9647059f, 1f)); //Blue
+                foreach (Transform child in transform)
+                {
+                    child.gameObject.SetActive(false);
+                }
+            }
             if (levelController.GetCurrentLevel() >= 4)
             { // level 3
                 colorList.Add(new Color(0.7921569f, 1, 0.7490196f)); //Green

@@ -20,10 +20,7 @@ public class PersistBetweenScenes : MonoBehaviour
         else { Destroy(gameObject); }
     }
 
-    private void Update()
-    {
-        Debug.Log(win);
-    }
+
     public void SetWin(bool status)
     {
         win = status;
