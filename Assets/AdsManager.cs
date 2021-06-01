@@ -22,9 +22,15 @@ public class AdsManager : MonoBehaviour
     public void RequestInterstitial()
     {
 #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-7927435182506699/2279787944";
+
+        //string adUnitId = "ca-app-pub-7927435182506699/2279787944";
+        string adUnitId = "ca-app-pub-3940256099942544/1033173712"; //? This is for testing purposes
+
+
 #elif UNITY_IPHONE
-        string adUnitId = "ca-app-pub-7927435182506699/7795838508";
+        //string adUnitId = "ca-app-pub-7927435182506699/7795838508";
+                string adUnitId = "ca-app-pub-3940256099942544/4411468910"; //? This is for testing purposes
+
 #else
         string adUnitId = "unexpected_platform";
 #endif
@@ -38,11 +44,15 @@ public class AdsManager : MonoBehaviour
         Debug.Log(" InterstitialAd Loaded");
     }
 
-    public void ShowInterstitial()
+    public bool ShowInterstitial()
     {
+        Debug.Log(" InterstitialAd Show");
+
         if (this.interstitial.IsLoaded())
         {
             this.interstitial.Show();
+            return true;
         }
+        return false;
     }
 }
