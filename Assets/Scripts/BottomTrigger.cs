@@ -7,6 +7,8 @@ public class BottomTrigger : MonoBehaviour
 {
     [SerializeField] GameObject menu;
     [SerializeField] Animator levelIndicatorAnimator;
+    [SerializeField] Animator menuAnimator;
+
 
     AdsManager adsManager;
     Player player;
@@ -25,10 +27,8 @@ public class BottomTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
 
-        adsManager.ShowInterstitial();
-        StartCoroutine(WaitAndLoadMenu());
-
-        levelIndicatorAnimator.SetTrigger("ActivateMenu");
+        //StartCoroutine(WaitAndLoadMenu());
+        StartCoroutine(ShowAd());
 
         if (player != null)
         {
@@ -38,9 +38,34 @@ public class BottomTrigger : MonoBehaviour
 
     IEnumerator WaitAndLoadMenu()
     {
+        bool adShown = adsManager.ShowInterstitial();
         yield return new WaitForSeconds(0.01f);
         menu.SetActive(true);
 
+        if (!adShown)
+        {
+            levelIndicatorAnimator.SetTrigger("ActivateMenu");
+
+            menuAnimator.SetTrigger("FadeTransition");
+
+        }
+        else
+        {
+            menuAnimator.SetTrigger("NoTransition");
+
+            levelIndicatorAnimator.SetTrigger("NoTransition");
+        }
+    }
+
+    IEnumerator ShowAd()
+    {
+        menu.SetActive(true);
+
+        levelIndicatorAnimator.SetTrigger("ActivateMenu");
+        menuAnimator.SetTrigger("FadeTransition");
+
+        yield return new WaitForSeconds(0.01f);
+        bool adShown = adsManager.ShowInterstitial();
     }
 
 }
