@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GoogleMobileAds.Api;
+
 
 public class PersistBetweenScenes : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class PersistBetweenScenes : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-
+        MobileAds.Initialize(initStatus => { });
         if (persistBetweenScenesInstance == null)
         {
             persistBetweenScenesInstance = this.gameObject;

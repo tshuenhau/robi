@@ -1,65 +1,53 @@
 {
     "m_SelectedDeviceId": "8AKY0MAYP",
     "m_SelectedPackage": {
-        "deviceId": "8AKY0MAYP",
-        "name": "com.fifteenth.robi",
-        "processId": 9108,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "8AKY0MAYP",
-            "name": "com.google.android.apps.nexuslauncher",
-            "processId": 2336,
-            "exited": false
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.The15th.robi",
-            "processId": 5728,
-            "exited": true
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.The15th.robi",
-            "processId": 9069,
-            "exited": true
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.The15th.robi",
-            "processId": 10653,
-            "exited": true
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.The15th.robi",
-            "processId": 11590,
-            "exited": true
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.The15th.robi",
-            "processId": 15039,
-            "exited": true
-        },
-        {
-            "deviceId": "8AKY0MAYP",
             "name": "com.The15th.robi",
             "processId": 31236,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.The15th.robi",
             "processId": 1188,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.fifteenth.robi",
             "processId": 9108,
+            "exited": true
+        },
+        {
+            "deviceId": "8AKY0MAYP",
+            "name": "com.fifteenth.robi",
+            "processId": 29068,
+            "exited": true
+        },
+        {
+            "deviceId": "8AKY0MAYP",
+            "name": "com.fifteenth.robi",
+            "processId": 30402,
+            "exited": true
+        },
+        {
+            "deviceId": "8AKY0MAYP",
+            "name": "com.google.android.apps.nexuslauncher",
+            "processId": 3572,
+            "exited": false
+        },
+        {
+            "deviceId": "8AKY0MAYP",
+            "name": "com.fifteenth.robi",
+            "processId": 31138,
             "exited": false
         }
     ],

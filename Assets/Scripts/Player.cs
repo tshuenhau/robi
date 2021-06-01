@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
     [SerializeField] float jumpSpeed = 19f;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
     LevelController levelController;
     Animator animator;
     ColorController colorController;
+    //AdsManager adsManager;
 
     PersistBetweenScenes persistBetweenScenes;
     bool dead = false;
@@ -71,6 +73,10 @@ public class Player : MonoBehaviour
             lives = 0;
             livesIndicator.SetActive(false);
         }
+
+        //adsManager = FindObjectOfType<AdsManager>();
+
+        //adsManager.RequestInterstitial();
     }
 
     // Update is called once per frame
@@ -150,13 +156,13 @@ public class Player : MonoBehaviour
         }
         dead = true;
         colorController.setDead(true);
-        //// StartCoroutine(DeathColorChange());
 
     }
     private IEnumerator WaitAndDie()
     {
         yield return new WaitForSeconds(0.65f);
         animator.SetTrigger("Die");
+        //adsManager.ShowInterstitial();
         Destroy(this);
 
     }
