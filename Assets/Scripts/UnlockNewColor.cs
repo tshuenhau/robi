@@ -12,6 +12,7 @@ public class UnlockNewColor : MonoBehaviour
     [SerializeField] GameObject unlockNewColorPlayer;
 
     [SerializeField] Animator levelIndicatorAnimator;
+    [SerializeField] Animator menuAnimator;
 
     LevelController levelController;
     ColorController colorController;
@@ -29,6 +30,8 @@ public class UnlockNewColor : MonoBehaviour
         //levelController.UpdateCurrentLevel(1);
         colorController.SetColor();
         menu.SetActive(true);
+        menuAnimator.SetTrigger("FadeTransition");
+
         levelIndicatorAnimator.SetTrigger("ActivateMenu");
 
 

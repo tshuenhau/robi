@@ -23,13 +23,13 @@ public class AdsManager : MonoBehaviour
     {
 #if UNITY_ANDROID
 
-        //string adUnitId = "ca-app-pub-7927435182506699/2279787944";
-        string adUnitId = "ca-app-pub-3940256099942544/1033173712"; //? This is for testing purposes
+        string adUnitId = "ca-app-pub-7927435182506699/2279787944";
+        //string adUnitId = "ca-app-pub-3940256099942544/1033173712"; //? This is for testing purposes
 
 
 #elif UNITY_IPHONE
-        //string adUnitId = "ca-app-pub-7927435182506699/7795838508";
-                string adUnitId = "ca-app-pub-3940256099942544/4411468910"; //? This is for testing purposes
+        string adUnitId = "ca-app-pub-7927435182506699/7795838508";
+                //string adUnitId = "ca-app-pub-3940256099942544/4411468910"; //? This is for testing purposes
 
 #else
         string adUnitId = "unexpected_platform";

@@ -3860,6 +3860,7 @@ MonoBehaviour:
   deadPlayer: {fileID: 1829763203692338877}
   unlockNewColorPlayer: {fileID: 5570509422540537131}
   levelIndicatorAnimator: {fileID: 4756077015091590833}
+  menuAnimator: {fileID: 5368267542809718542}
 --- !u!114 &8507962112561096322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4160,6 +4161,11 @@ PrefabInstance:
       propertyPath: happyPlayer
       value: 
       objectReference: {fileID: 3436992176989460786}
+    - target: {fileID: 4148501130203321788, guid: 4af96f114e14b2b4d86ba5d3d79b2f9d,
+        type: 3}
+      propertyPath: menuAnimator
+      value: 
+      objectReference: {fileID: 5368267542809718542}
     - target: {fileID: 4148501130203321788, guid: 4af96f114e14b2b4d86ba5d3d79b2f9d,
         type: 3}
       propertyPath: tryAgainButton

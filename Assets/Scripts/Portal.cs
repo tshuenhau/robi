@@ -14,6 +14,9 @@ public class Portal : MonoBehaviour
     [SerializeField] GameObject unlockNewColorPlayer;
     [SerializeField] Animator levelIndicatorAnimator;
 
+    [SerializeField] Animator menuAnimator;
+
+
 
 
 
@@ -34,6 +37,7 @@ public class Portal : MonoBehaviour
         deadPlayer.SetActive(false);
         happyPlayer.SetActive(true);
         menu.SetActive(true);
+        menuAnimator.SetTrigger("FadeTransition");
         levelIndicatorAnimator.SetTrigger("ActivateMenu");
     }
     // Update is called once per frame
