@@ -3,99 +3,51 @@
     "m_SelectedPackage": {
         "deviceId": "8AKY0MAYP",
         "name": "com.fifteenth.robi",
-        "processId": 29916,
+        "processId": 15642,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "8AKY0MAYP",
-            "name": "com.android.chrome",
-            "processId": 21047,
-            "exited": false
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.fifteenth.robi",
-            "processId": 13150,
-            "exited": true
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.google.android.apps.nexuslauncher",
-            "processId": 3572,
+            "name": "com.google.android.deskclock",
+            "processId": 2630,
             "exited": true
         },
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.fifteenth.robi",
-            "processId": 13750,
+            "processId": 8870,
             "exited": true
         },
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.fifteenth.robi",
-            "processId": 18548,
+            "processId": 15403,
             "exited": true
         },
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.fifteenth.robi",
-            "processId": 19757,
+            "processId": 16066,
             "exited": true
         },
         {
             "deviceId": "8AKY0MAYP",
-            "name": "com.google.android.apps.nexuslauncher",
-            "processId": 7194,
+            "name": "com.fifteenth.robi",
+            "processId": 10107,
+            "exited": true
+        },
+        {
+            "deviceId": "8AKY0MAYP",
+            "name": "com.fifteenth.robi",
+            "processId": 14918,
             "exited": false
         },
         {
             "deviceId": "8AKY0MAYP",
             "name": "com.fifteenth.robi",
-            "processId": 27534,
-            "exited": false
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.fifteenth.robi",
-            "processId": 31672,
-            "exited": false
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.fifteenth.robi",
-            "processId": 3625,
-            "exited": false
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.fifteenth.robi",
-            "processId": 5375,
-            "exited": false
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.fifteenth.robi",
-            "processId": 11398,
-            "exited": false
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.fifteenth.robi",
-            "processId": 28357,
-            "exited": false
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.fifteenth.robi",
-            "processId": 29711,
-            "exited": false
-        },
-        {
-            "deviceId": "8AKY0MAYP",
-            "name": "com.fifteenth.robi",
-            "processId": 29916,
+            "processId": 15642,
             "exited": false
         }
     ],
@@ -107,7 +59,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": true
+                "m_Selected": false
             },
             {
                 "m_Name": "",
@@ -128,6 +80,10 @@
             {
                 "m_Name": "CRASH",
                 "m_Selected": false
+            },
+            {
+                "m_Name": "Ads",
+                "m_Selected": true
             }
         ]
     },

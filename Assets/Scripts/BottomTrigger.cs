@@ -12,6 +12,8 @@ public class BottomTrigger : MonoBehaviour
 
     AdsManager adsManager;
     Player player;
+
+    bool isAd = false;
     void Start()
     {
         player = FindObjectOfType<Player>();
@@ -19,8 +21,11 @@ public class BottomTrigger : MonoBehaviour
         {
             menu.SetActive(false);
         }
-        adsManager = FindObjectOfType<AdsManager>();
-        adsManager.RequestInterstitial();
+        if (adsManager = FindObjectOfType<AdsManager>())
+        {
+            isAd = true;
+            adsManager.RequestInterstitial();
+        }
         //adsManager.ShowInterstitial();
 
     }
@@ -38,7 +43,11 @@ public class BottomTrigger : MonoBehaviour
 
     IEnumerator WaitAndLoadMenu()
     {
-        bool adShown = adsManager.ShowInterstitial();
+        bool adShown = false;
+        if (isAd)
+        {
+            adShown = adsManager.ShowInterstitial();
+        }
         yield return new WaitForSeconds(0.01f);
         menu.SetActive(true);
 
@@ -65,7 +74,10 @@ public class BottomTrigger : MonoBehaviour
         menuAnimator.SetTrigger("FadeTransition");
 
         yield return new WaitForSeconds(0.01f);
-        bool adShown = adsManager.ShowInterstitial();
+        if (isAd)
+        {
+            bool adShown = adsManager.ShowInterstitial();
+        }
     }
 
 }

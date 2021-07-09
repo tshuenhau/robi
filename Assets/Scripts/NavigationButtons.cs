@@ -18,11 +18,10 @@ public class NavigationButtons : MonoBehaviour
         musicPlayer = FindObjectOfType<MusicPlayer>();
         sceneTransition = FindObjectOfType<SceneTransition>();
         persistBetweenScenes = FindObjectOfType<PersistBetweenScenes>();
-
     }
     public void Play()
     {
-        sceneTransition.LoadScene(Save.current.level);
+        sceneTransition.LoadScene(Save.current.level > 18 ? 18 : Save.current.level);
 
         //SceneManager.LoadScene(Save.current.level);
         //musicPlayer.PlayMode();

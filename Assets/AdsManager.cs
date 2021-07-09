@@ -18,7 +18,7 @@ public class AdsManager : MonoBehaviour
         return interstitial;
     }
 
-    // Update is called once per frame
+
     public void RequestInterstitial()
     {
 #if UNITY_ANDROID
@@ -34,15 +34,22 @@ public class AdsManager : MonoBehaviour
 #else
         string adUnitId = "unexpected_platform";
 #endif
-
+        if (interstitial != null)
+        {
+            interstitial.Destroy();
+        }
         // Initialize an InterstitialAd.
         this.interstitial = new InterstitialAd(adUnitId);
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
+
+
         // Load the interstitial with the request.
         this.interstitial.LoadAd(request);
         Debug.Log(" InterstitialAd Loaded");
+
     }
+
 
     public bool ShowInterstitial()
     {

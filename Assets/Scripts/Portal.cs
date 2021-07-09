@@ -17,9 +17,6 @@ public class Portal : MonoBehaviour
     [SerializeField] Animator menuAnimator;
 
 
-
-
-
     LevelController levelController;
     // Start is called before the first frame update
     void Start()
