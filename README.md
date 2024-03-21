@@ -7,7 +7,7 @@ Prepare yourself for the most challenging and fun game of 2021 – **robi: the c
 ## 📱 Gameplay Preview
 While we can't embed videos directly here, click on the link below to watch the vibrant world of **robi: the color robot** in action and get a glimpse of the addictive gameplay:
 
-[![Watch the game in action!](http://img.youtube.com/vi/cI3koDDd80o/0.jpg)](http://www.youtube.com/watch?v=VIDEO_ID "robi: the color robot - Gameplay")
+[![Watch the game in action!](http://img.youtube.com/vi/cI3koDDd80o/0.jpg)](http://www.youtube.com/watch?v=cI3koDDd80o "robi: the color robot - Gameplay")
 
 ## 🕹️ Description
 Dive into a world of vibrant colors and engaging challenges with robi. Tap your way through a series of dynamically changing obstacles, ensuring that you match the right colors as you progress. With every tap, you inch closer to achieving high scores and unlocking exciting Power-Ups and Skins.
