@@ -1,6 +1,6 @@
 # robi: the color robot
 
-## 🎮 A Vibrant Tap Challenge by 15TH PTE. LTD.
+## 🎮 A Vibrant Tap Challenge
 
 Prepare yourself for the most challenging and fun game of 2021 – **robi: the color robot**! Designed for all ages, this game will put your coordination, timing, and focus to the ultimate test. With its simple yet addictively challenging gameplay, "robi: the color robot" is your next favorite go-to game for casual play sessions or intense tapping marathons.
 
